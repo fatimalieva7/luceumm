@@ -12,6 +12,7 @@ urlpatterns = [
     path('team', views.team, name='team'),
     path('courses', views.courses, name='courses'),
     path('testimonial', views.testimonial, name='testimonial'),
+    path('page_not_found/', views.page_not_found, name='page_not_found'),
 ]
 
 if settings.DEBUG:

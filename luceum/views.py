@@ -18,4 +18,8 @@ def team(request):
 def testimonial(request):
     return render(request, 'luceum/testimonial.html')
 
+def page_not_found(request, exception):
+    return render(request, 'luceum/404.html', status=404)
+
+
 
