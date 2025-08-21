@@ -3,8 +3,12 @@ from pathlib import Path
 import os
 from django.utils.translation import gettext_lazy as _
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+
 
 SECRET_KEY = 'django-insecure-7k6+bd^*i#t2v-i=3b1uwwknyx$xs+v4r!5_d66x_@1a0y2dkm'
 
@@ -14,6 +18,7 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -21,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'luceum',
+
 ]
 
 MIDDLEWARE = [
@@ -85,35 +91,34 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_TZ = True
 
 LANGUAGES = [
     ('ru', _('Русский')),
     ('ky', _('Кыргызча')),
 ]
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'ky')
 
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-]
+TIME_ZONE = 'Asia/Bishkek'
+
+USE_I18N = True
+
+USE_TZ = True
+
+USE_L10N = True
 
 
-STATIC_URL = 'static/'
+STATIC_URL = "/static/"
+
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / "static",
 ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 
