@@ -2,124 +2,92 @@
 {% load static %}
 {% block content %}
 
-<!-- Header Start -->
-<div class="container-fluid bg-primary py-5 mb-5 page-header" style="background: linear-gradient(rgba(24, 29, 56, 0.7), rgba(24, 29, 56, 0.7)), url(' static/img/фото.jpeg') center center no-repeat; background-size: cover;">
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h1 class="display-3 text-white animated slideInDown">Биз жөнүндө</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a class="text-white" href="{% url 'index' %}">Башкы бет</a></li>
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Курстар</li>
-                    </ol>
-                </nav>
+    <main>
+        <section class="about-hero">
+            <div class="container">
+
             </div>
-        </div>
-    </div>
-</div>
-<!-- Header End -->
-    <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                            <h5 class="mb-3">Тажрыйбалуу окутуучулар</h5>
-                            <p>Тааныш болгула тажрыйбалуу мугалимдер менен</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5 class="mb-3">Офлайн Сабактар </h5>
-                            <p>Мугалимдер сизден билимин аяшпайт дайыма жардам беришет</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                            <h5 class="mb-3">Үй тапшырмалары</h5>
-                            <p>Үйдө жасалуучу практикалык иштер</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                            <h5 class="mb-3">Китепкана</h5>
-                            <p>Көп сандагы электрондук ресурстар</p>
-                        </div>
-                    </div>
-                </div>
+        </section>
+
+        <section class="history">
+            <div class="container">
+                <h2 style="text-align: center; margin-top: 1rem ; color: #1a56db;  margin-bottom: 1rem;" >История учреждения</h2>
+                <p>Профессиональный лицей №70 был основан в 1985 году с целью подготовки высококвалифицированных специалистов для rapidly развивающейся промышленности региона. За годы своего существования лицей прошел путь от скромного профессионального училища до современного образовательного комплекса, оснащенного передовыми технологиями.</p>
+
+                <p>В 1995 году лицей получил статус инновационной площадки, что позволило внедрить новые образовательные программы и методики обучения. Многие выпускники лицея стали ведущими специалистами на предприятиях города и страны.</p>
+
+                <p>С 2010 года лицей активно развивает дистанционное образование, что особенно актуально в современных условиях. Мы гордимся тем, что смогли сохранить лучшие традиции профессионального образования, сочетая их с современными технологиями.</p>
+
+                <h3>Наши достижения</h3>
+                <ul>
+                    <li>Более 5000 выпускников за всю историю</li>
+                    <li>95% трудоустройства выпускников</li>
+                    <li>15 программ профессиональной подготовки</li>
+                    <li>Современные лаборатории и мастерские</li>
+                    <li>Партнерские отношения с ведущими предприятиями региона</li>
+                </ul>
+
+                <h3>Перспективы развития</h3>
+                <p>В планах лицея - расширение перечня образовательных программ, внедрение VR-технологий в образовательный процесс и создание центра повышения квалификации для специалистов различных отраслей.</p>
             </div>
-        </div>
-    </div>
-    <!-- Service End -->
+        </section>
+    </main>
 
 
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/лицей.jpeg' %}" alt="" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">Биз жөнүндө</h6>
-                    <h1 class="mb-4">№70 Кесиптик Лицейге кош келиңиз</h1>
-                    <p class="mb-4">Биз сапаттуу билимди ар кимге жеткирүүгө аракет кылабыз. Биз менен окуу – бул ийгиликтүү келечекке кадам.</p>
-                    <p class="mb-4">Биздин курстар заманбап, практикалык жана жеткиликтүү. Тажрыйбалуу окутуучулар менен бирге билим алыңыз.</p>
-                    <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Тажрыйбалуу мугалимдер</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Онлайн </p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Эл аралык сертификат</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Кызыктуу Иш чаралар</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Бекер тамак аш жатар жай</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Бизде окусаныз атестат диплом берилет </p>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Толук маалымат</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
+<!--    &lt;!&ndash; About Start &ndash;&gt;-->
+<!--    <div class="container-xxl py-5">-->
+<!--        <div class="container">-->
+<!--            <div class="row g-5">-->
+<!--                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">-->
+<!--                    <div class="position-relative h-100">-->
+<!--                        <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/лицей.jpeg' %}" alt="" style="object-fit: cover;">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">-->
+<!--                    <h6 class="section-title bg-white text-start text-primary pe-3">Биз жөнүндө</h6>-->
+<!--                    <h1 class="mb-4">№70 Кесиптик Лицейге кош келиңиз</h1>-->
+<!--                    <p class="mb-4">Биз сапаттуу билимди ар кимге жеткирүүгө аракет кылабыз. Биз менен окуу – бул ийгиликтүү келечекке кадам.</p>-->
+<!--                    <p class="mb-4">Биздин курстар заманбап, практикалык жана жеткиликтүү. Тажрыйбалуу окутуучулар менен бирге билим алыңыз.</p>-->
+<!--                    <div class="row gy-2 gx-4 mb-4">-->
+<!--                        <div class="col-sm-6">-->
+<!--                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Тажрыйбалуу мугалимдер</p>-->
+<!--                        </div>-->
+<!--                        <div class="col-sm-6">-->
+<!--                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Онлайн </p>-->
+<!--                        </div>-->
+<!--                        <div class="col-sm-6">-->
+<!--                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Эл аралык сертификат</p>-->
+<!--                        </div>-->
+<!--                        <div class="col-sm-6">-->
+<!--                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Кызыктуу Иш чаралар</p>-->
+<!--                        </div>-->
+<!--                        <div class="col-sm-6">-->
+<!--                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Бекер тамак аш жатар жай</p>-->
+<!--                        </div>-->
+<!--                        <div class="col-sm-6">-->
+<!--                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Бизде окусаныз атестат диплом берилет </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Толук маалымат</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; About End &ndash;&gt;-->
 
-    <div class="container my-5">
-        <h2 class="text-center mb-4">Наш лицей — в видео</h2>
-        <div class="ratio ratio-16x9">
-          <iframe 
-            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F585995813804897%2F&show_text=0&width=560" 
-            width="560" height="315" 
-            style="border:none;overflow:hidden" 
-            scrolling="no" frameborder="0" 
-            allowfullscreen 
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>
-        </div>
-      </div>
+<!--    <div class="container my-5">-->
+<!--        <h2 class="text-center mb-4">Наш лицей — в видео</h2>-->
+<!--        <div class="ratio ratio-16x9">-->
+<!--          <iframe -->
+<!--            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F585995813804897%2F&show_text=0&width=560" -->
+<!--            width="560" height="315" -->
+<!--            style="border:none;overflow:hidden" -->
+<!--            scrolling="no" frameborder="0" -->
+<!--            allowfullscreen -->
+<!--            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">-->
+<!--          </iframe>-->
+<!--        </div>-->
+<!--      </div>-->
 
 
     <div class="container-xxl py-5">
