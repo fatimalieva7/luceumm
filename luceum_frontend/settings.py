@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -14,7 +15,7 @@ SECRET_KEY = 'django-insecure-7k6+bd^*i#t2v-i=3b1uwwknyx$xs+v4r!5_d66x_@1a0y2dkm
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  []
 
 
 INSTALLED_APPS = [

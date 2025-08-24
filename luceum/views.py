@@ -1,23 +1,25 @@
 from django.shortcuts import render
-from .models import Cotegory, Profesion, Pedagog, Bestpedagog, Curss
+from .models import Cotegory, Profesion, Pedagog, Bestpedagog, Curss, About, HeroSection
 
 
 
 def index(request):
 
     context = {
+        'hero': HeroSection.objects.all(),
+
         'categories': Cotegory.objects.all(),
         'professions': Profesion.objects.all(),
-        
+
         'best_pedagogs': Bestpedagog.objects.all(),
     }
 
     return render(request, 'luceum/index.html',context)
+
 def about(request):
     context = {
-        'categories': Cotegory.objects.all(),
         'professions': Profesion.objects.all(),
-        
+        'about': About.objects.all(),
         'pedagogs': Pedagog.objects.all(),
 
         
