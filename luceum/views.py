@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Cotegory, Profesion, Pedagog, Bestpedagog, Curss, About, HeroSection
+from .models import Cotegory, HeroSection
 
 
 
@@ -9,34 +9,15 @@ def index(request):
         'hero': HeroSection.objects.all(),
 
         'categories': Cotegory.objects.all(),
-        'professions': Profesion.objects.all(),
-
-        'best_pedagogs': Bestpedagog.objects.all(),
     }
 
     return render(request, 'luceum/index.html',context)
 
-def about(request):
-    context = {
-        'professions': Profesion.objects.all(),
-        'about': About.objects.all(),
-        'pedagogs': Pedagog.objects.all(),
 
-        
-    }
-    return render(request, 'luceum/about.html',context)
 
 def contact(request):
     return render(request, 'luceum/contact.html')
 
-def courses(request):
-    context = {
-    'courses': Curss.objects.all(),
-    }
-    return render(request, 'luceum/courses.html',context)
-
-def team(request):
-    return render(request, 'luceum/team.html')
 
 def testimonial(request):
     return render(request, 'luceum/testimonial.html')
