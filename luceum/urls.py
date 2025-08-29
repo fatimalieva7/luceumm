@@ -10,6 +10,7 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('testimonial', views.testimonial, name='testimonial'),
     path('page_not_found/', views.page_not_found, name='page_not_found'),
+    path('news', views.news, name='news'),
 ]
 
 if settings.DEBUG:

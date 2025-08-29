@@ -434,272 +434,40 @@
 }
 
 
-
-
-
-  * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            padding: 20px;
-        }
-
-        .container-xxl {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .py-5 {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-
-        .container {
-            width: 100%;
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-right: -15px;
-            margin-left: -15px;
-        }
-
-        .col-lg-3 {
-            position: relative;
-            width: 100%;
-            padding-right: 15px;
-            padding-left: 15px;
-        }
-
-        @media (min-width: 992px) {
-            .col-lg-3 {
-                flex: 0 0 25%;
-                max-width: 25%;
-            }
-        }
-
-        .col-sm-6 {
-            position: relative;
-            width: 100%;
-            padding-right: 15px;
-            padding-left: 15px;
-        }
-
-        @media (min-width: 576px) {
-            .col-sm-6 {
-                flex: 0 0 50%;
-                max-width: 50%;
-            }
-        }
-
-        .g-4 {
-            margin-right: -15px;
-            margin-left: -15px;
-        }
-
-        .g-4 > .col {
-            padding-right: 15px;
-            padding-left: 15px;
-        }
-
-        .wow {
-            visibility: visible;
-        }
-
-        .fadeInUp {
-            animation-name: fadeInUp;
-        }
-
-        .service-item {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
-            transition: 0.5s;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .text-center {
-            text-align: center !important;
-        }
-
-        .pt-3 {
-            padding-top: 1rem !important;
-        }
-
-        .p-4 {
-            padding: 1.5rem !important;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .fa-3x {
-            font-size: 3em;
-        }
-
-        .text-primary {
-            color: #06BBCC !important;
-        }
-
-        .mb-4 {
-            margin-bottom: 1.5rem !important;
-        }
-
-        .mb-3 {
-            margin-bottom: 1rem !important;
-        }
-
-        h5 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            line-height: 1.2;
-            color: #06BBCC;
-        }
-
-        p {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #666;
-        }
-
-        /* Анимации */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translate3d(0, 40px, 0);
-            }
-            to {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        .wow {
-            visibility: visible;
-        }
-
-        /* Задержки анимации */
-        [data-wow-delay="0.1s"] {
-            animation-delay: 0.1s;
-        }
-
-        [data-wow-delay="0.3s"] {
-            animation-delay: 0.3s;
-        }
-
-        [data-wow-delay="0.5s"] {
-            animation-delay: 0.5s;
-        }
-
-        [data-wow-delay="0.7s"] {
-            animation-delay: 0.7s;
-        }
-
-        .fadeInUp {
-            animation-name: fadeInUp;
-            animation-duration: 1s;
-            animation-fill-mode: both;
-        }
-
-        /* Стили для ссылок */
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            height: 100%;
-        }
-
-
-
-/* Общий стиль */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f7fa;
-    color: #333;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-/* Шапка */
-header {
-    text-align: center;
-    background: #004080;
-    color: white;
-    padding: 40px 20px;
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
+.image-section img {
+  width: 100%;
+  border-radius: 8px;
 }
 
-header p {
-    margin-top: 10px;
-    font-size: 1.2em;
+.content-section {
+  margin-top: 20px;
 }
 
-/* Секция профессий */
-.professions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 40px;
-    max-width: 1200px;
-    margin: auto;
+.content-section h1 {
+  font-size: 28px;
+  color: #0d1b3d;
 }
 
-/* Карточки */
-.card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card img {
-    max-width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.card h2 {
-    margin: 10px 0;
-    color: #004080;
-}
-
-.card p {
-    font-size: 1em;
-    color: #555;
+.content-section p {
+  line-height: 1.6;
+  margin: 15px 0;
 }
 
 

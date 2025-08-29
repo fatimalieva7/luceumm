@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Cotegory, HeroSection
 
-
+def news(request):
+    return render(request, 'luceum/news.html')
 
 def index(request):
 
