@@ -1,0 +1,34 @@
+{% extends 'luceum/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебное учреждение - Профессии</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Популярные профессии</h1>
+        <p>Здесь вы можете узнать о разных профессиях и чем они занимаются</p>
+    </header>
+
+    <main class="professions">
+        {% for profession in professions %}
+        <div class="card">
+            <img src="{{ profession.image.url }}" alt="Врач">
+            <h2>{{ profession.name }}</h2>
+            <p>{{ profession.description }}</p>
+        </div>
+        {% endfor %}
+
+
+    </main>
+</body>
+</html>
+
+
+{% endblock %}

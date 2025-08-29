@@ -630,3 +630,76 @@
             display: block;
             height: 100%;
         }
+
+
+
+/* Общий стиль */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* Шапка */
+header {
+    text-align: center;
+    background: #004080;
+    color: white;
+    padding: 40px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Секция профессий */
+.professions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Карточки */
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    margin: 10px 0;
+    color: #004080;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+}
+
+
