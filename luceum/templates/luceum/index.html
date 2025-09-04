@@ -2,25 +2,27 @@
 {% load static %}
 {% block content %}
 
-    <!-- Carousel Start -->
+
     <div class="container-fluid p-0 mb-5">
     <div class="owl-carousel header-carousel position-relative">
+        {% for hero in hero %}
         <div class="item position-relative">
-            <img class="img-fluid w-100" src="{% static 'img/лицейй.jpeg' %}" alt="" style="object-fit: cover; height: 100vh;">
+            <img class="img-fluid w-100" src="{{ hero.image.url}}" alt="" style="object-fit: cover; height: 100vh;">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Мыкты Онлайн курстар </h5>
-                            <h1 class="display-3 text-white animated slideInDown">Мыкты онлайн билим берүү платформасы</h1>
+<!--                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Мыкты Онлайн курстар </h5>-->
+                            <h1 class="display-3 text-white animated slideInDown">{{ hero.title }}</h1>
                             
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Толук маалымат</a>
-                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Катталуу</a>
+                            <a href="{% url 'about' %}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{{ hero.button_primary_text }}</a>
+                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">{{ hero.button_primary_url }}</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 
@@ -28,50 +30,77 @@
     <!-- Carousel End -->
 
 
-    <!-- Service Start -->
-    <div class="container-xxl py-5">
+   <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                            <h5 class="mb-3">Тажрыйбалуу окутуучулар</h5>
-                            <p>Тааныш болгула тажрыйбалуу мугалимдер менен</p>
+                    <a href="{% url 'team' %}" class="card-link" target="_blank">
+                        <div class="service-item text-center pt-3">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                                <h5 class="mb-3">Профи учителя</h5>
+                                <p>Подробнее</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5 class="mb-3">Офлайн Сабактар </h5>
-                            <p>Мугалимдер сизден билимин аяшпайт дайыма жардам беришет</p>
+                    <a href="{% url 'profession' %}" class="card-link" target="_blank">
+                        <div class="service-item text-center pt-3">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                                <h5 class="mb-3">Наши ПРофессии</h5>
+                                <p>Подробнее</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                            <h5 class="mb-3">Үй тапшырмалары</h5>
-                            <p>Үйдө жасалуучу практикалык иштер</p>
+                    <a href="https://example.com/practical" class="card-link" target="_blank">
+                        <div class="service-item text-center pt-3">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                                <h5 class="mb-3">Практичсекие работы</h5>
+                                <p>Подробнее</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                            <h5 class="mb-3">Китепкана</h5>
-                            <p>Көп сандагы электрондук ресурстар</p>
+                    <a href="https://example.com/library" class="card-link" target="_blank">
+                        <div class="service-item text-center pt-3">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                                <h5 class="mb-3">Русский дом | библиотека </h5>
+                                <p>подробнее</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Service End -->
+
+    <script>
+        // Простая реализация Wow.js для анимаций
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.wow');
+
+            function checkIfInView() {
+                animatedElements.forEach(function(element) {
+                    const position = element.getBoundingClientRect();
+
+                    if(position.top < window.innerHeight && position.bottom >= 0) {
+                        element.classList.add('fadeInUp');
+                    }
+                });
+            }
+
+            // Проверяем при загрузке и при прокрутке
+            checkIfInView();
+            window.addEventListener('scroll', checkIfInView);
+        });
+    </script>
 
 
     <!-- About Start -->
@@ -138,19 +167,13 @@
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                             <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="{% static 'img/prog.jpeg' %}" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Graphic Design</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
+
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
                             <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="{% static 'img/student.jpeg' %}" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Video Editing</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
+
                             </a>
                         </div>
                     </div>
@@ -158,10 +181,7 @@
                 <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
                     <a class="position-relative d-block h-100 overflow-hidden" href="">
                         <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/curs_4.jpeg' %}" alt="" style="object-fit: cover;">
-                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                            <h5 class="m-0">Online Marketing</h5>
-                            <small class="text-primary">49 Courses</small>
-                        </div>
+
                     </a>
                 </div>
             </div>
