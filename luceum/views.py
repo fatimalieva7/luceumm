@@ -10,6 +10,7 @@ def index(request):
         'hero': HeroSection.objects.all(),
 
         'categories': Cotegory.objects.all(),
+
     }
 
     return render(request, 'luceum/index.html',context)
