@@ -21,5 +21,12 @@ class Cotegory(models.Model):
         return self.name
 
 
+class Professi(models.Model):
+    name = models.CharField(max_length=100, unique=20, verbose_name='Название профессии')
+    description = models.TextField(blank=True, null=True, verbose_name='Описание профессии')
+    image = models.ImageField(upload_to='professions/', blank=True, null=True, verbose_name='Изображение профессии')
+    slug = models.SlugField(max_length=100, unique=True, verbose_name='Слаг профессии')
+
+
 
 

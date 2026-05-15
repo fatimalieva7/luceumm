@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Cotegory, HeroSection
+from .models import Cotegory, HeroSection,Professi
 
 def news(request):
     return render(request, 'luceum/news.html')
@@ -10,6 +10,7 @@ def index(request):
         'hero': HeroSection.objects.all(),
 
         'categories': Cotegory.objects.all(),
+        'professions': Professi.objects.all(),
 
     }
 
