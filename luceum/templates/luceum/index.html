@@ -2,29 +2,20 @@
 {% load static %}
 {% block content %}
 
-
-    <div class="container-fluid p-0 mb-5">
-    <div class="owl-carousel header-carousel position-relative">
-        {% for hero in hero %}
-        <div class="item position-relative">
-            <img class="img-fluid w-100" src="{{ hero.image.url}}" alt="" style="object-fit: cover; height: 100vh;">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-sm-10 col-lg-8">
-<!--                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Мыкты Онлайн курстар </h5>-->
-                            <h1 class="display-3 text-white animated slideInDown">{{ hero.title }}</h1>
-                            
-                            <a href="{% url 'about' %}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{{ hero.button_primary_text }}</a>
-                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">{{ hero.button_primary_url }}</a>
-                        </div>
-                    </div>
+<div class="container-xxl px-0 my-2">
+    <div class="row g-0">
+        <div class="col-12">
+            <div class="owl-carousel header-carousel position-relative oshtu-exact-banner">
+                {% for item in hero %}
+                <div class="owl-carousel-item">
+                    <img class="banner-img" src="{{ item.image.url }}" alt="{{ item.title|default:'Слайд' }}">
                 </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
     </div>
 </div>
+
 
    <div class="container-xxl py-5">
         <div class="container">
@@ -213,4 +204,44 @@
                 
     
 
+
+<style>
+    .oshtu-exact-banner {
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid #005b8e;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .oshtu-exact-banner .banner-img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .oshtu-exact-banner .banner-img {
+            height: 200px;
+        }
+    }
+</style>
+
+<script>
+    $(document).ready(function(){
+        $(".header-carousel").owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: true,
+            autoplay: true,           /* Включаем автопрокрутку */
+            autoplayTimeout: 3000,   /* Время показа одного фото: 3000 мс = 3 секунды */
+            smartSpeed: 800,         /* Скорость самого перехода (0.8 сек) */
+            autoplayHoverPause: true /* Пауза при наведении мыши (по желанию) */
+        });
+    });
+</script>
 {% endblock %}

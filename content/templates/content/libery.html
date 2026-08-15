@@ -1,0 +1,313 @@
+{% extends 'luceum/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-xxl px-0 my-3">
+    <div class="oshtu-hero-banner">
+        <!-- Левая часть: большое фоновое фото библиотеки -->
+        <div class="banner-image-bg" style="background-image: url('{% static "img/library_bg.jpg" %}');">
+            
+            <!-- Соты-шестиугольники с фотографиями разделов -->
+            <div class="hexagon-container">
+                <div class="hexagon">
+                    <img src="{% static 'img/lib_books.jpg' %}" alt="Читальный зал">
+                </div>
+                <div class="hexagon">
+                    <img src="{% static 'img/lib_digital.jpg' %}" alt="Электронный каталог">
+                </div>
+                <div class="hexagon">
+                    <img src="{% static 'img/lib_event.jpg' %}" alt="Мероприятия">
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая часть: синяя плашка с диагональным срезом и текстом -->
+        <div class="banner-blue-side">
+            <div class="banner-content">
+                <h3 class="banner-title">Библиотека & Русский дом ОшТУ</h3>
+                <ul class="banner-list">
+                    <li><i class="fa fa-book me-2"></i>Более 100 000 учебных, научных и художественных изданий;</li>
+                    <li><i class="fa fa-laptop me-2"></i>Электронно-библиотечная система и доступ к мировым базам знаний;</li>
+                    <li><i class="fa fa-globe me-2"></i>Русский дом — центр русской культуры, языка и просвещения;</li>
+                    <li><i class="fa fa-users me-2"></i>Комфортные читальные залы для учебы и командных проектов.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-4">
+    <div class="container">
+
+        <!-- Полезные электронные ресурсы -->
+        {% if digital_resources %}
+        <div class="text-center wow fadeInUp mb-4" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Онлайн Доступ</h6>
+            <h2 class="mb-4">Электронные ресурсы и порталы</h2>
+        </div>
+        <div class="row g-4 mb-5 justify-content-center">
+            {% for resource in digital_resources %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="card h-100 border-0 shadow-sm custom-card">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box mb-3">
+                            <i class="fa {{ resource.icon_class|default:'fa-globe' }} fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-2">{{ resource.title }}</h5>
+                        <p class="card-text text-muted small">{{ resource.description }}</p>
+                        <a href="{{ resource.url }}" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill mt-2">Перейти на портал</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Каталог книг и учебников -->
+        <div class="text-center wow fadeInUp mb-4" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Книжный Фонд</h6>
+            <h2 class="mb-4">Учебники и литература</h2>
+        </div>
+
+        <div class="row g-4 mb-5">
+            {% for book in books %}
+            <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="card h-100 border-0 shadow-sm book-card">
+                    <div class="position-relative overflow-hidden text-center bg-light p-3" style="height: 240px;">
+                        {% if book.cover %}
+                            <img src="{{ book.cover.url }}" class="img-fluid h-100 rounded" style="object-fit: contain;" alt="{{ book.title }}">
+                        {% else %}
+                            <div class="d-flex align-items-center justify-content-center h-100 text-muted">
+                                <i class="fa fa-book fa-4x opacity-25"></i>
+                            </div>
+                        {% endif %}
+                        <span class="badge bg-primary position-absolute top-0 start-0 m-2">{{ book.category.name }}</span>
+                    </div>
+                    <div class="card-body d-flex flex-column p-3">
+                        <h6 class="fw-bold mb-1 text-truncate">{{ book.title }}</h6>
+                        <p class="text-muted small mb-2">{{ book.author|default:"Автор не указан" }}</p>
+                        <div class="mt-auto pt-2 border-top d-flex justify-content-between align-items-center">
+                            {% if book.pdf_file %}
+                                <a href="{{ book.pdf_file.url }}" class="btn btn-sm btn-primary text-white" download><i class="fa fa-download me-1"></i> Скачать PDF</a>
+                            {% else %}
+                                <span class="badge bg-secondary">Печатный фонд</span>
+                            {% endif %}
+                            
+                            {% if book.is_available %}
+                                <span class="text-success small"><i class="fa fa-check-circle"></i> В наличии</span>
+                            {% else %}
+                                <span class="text-danger small"><i class="fa fa-times-circle"></i> Выдано</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-4">
+                <p class="text-muted">Книги пока не добавлены через админ-панель.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Мероприятия и Литературные вечера -->
+        {% if events %}
+        <div class="text-center wow fadeInUp mb-4" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Жизнь Библиотеки</h6>
+            <h2 class="mb-4">Выставки и мероприятия</h2>
+        </div>
+        <div class="row g-4">
+            {% for event in events %}
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="card border-0 shadow-sm overflow-hidden flex-md-row h-100">
+                    {% if event.image %}
+                    <img src="{{ event.image.url }}" class="card-img-left col-md-5" style="object-fit: cover; min-height: 200px;" alt="{{ event.title }}">
+                    {% endif %}
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            {% if event.event_date %}
+                            <small class="text-primary fw-bold mb-2 d-block"><i class="fa fa-calendar-alt me-1"></i> {{ event.event_date|date:"d E Y, H:i" }}</small>
+                            {% endif %}
+                            <h5 class="fw-bold mb-2">{{ event.title }}</h5>
+                            <p class="card-text text-muted small">{{ event.description|truncatewords:25 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+<!-- Стили страницы -->
+<style>
+
+    /* Главный контейнер баннера */
+.oshtu-hero-banner {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid #005b8e; /* Фирменная темно-синяя рамка */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    display: flex;
+    background-color: #002b49;
+}
+
+/* Фон с большим фото библиотеки слева */
+.banner-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Затеняющий оверлей для лучшего контраста фото */
+.banner-image-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 43, 73, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* Контейнер для шестиугольников (сот) внизу */
+.hexagon-container {
+    position: absolute;
+    bottom: 15px;
+    left: 18%;
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+}
+
+/* Формирование фигуры шестиугольника */
+.hexagon {
+    width: 90px;
+    height: 100px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: #005b8e;
+    padding: 3px;
+    transition: transform 0.3s ease;
+}
+
+.hexagon:hover {
+    transform: scale(1.08);
+}
+
+.hexagon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Правая синяя плашка под углом */
+.banner-blue-side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, #005b8e 0%, #002d4a 100%);
+    clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px 20px 80px;
+    z-index: 3;
+}
+
+/* Текст внутри плашки */
+.banner-content {
+    color: #ffffff;
+}
+
+.banner-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.banner-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.banner-list li {
+    font-size: 0.88rem;
+    margin-bottom: 12px;
+    color: #e0f2fe;
+    display: flex;
+    align-items: center;
+    line-height: 1.3;
+}
+
+.banner-list li i {
+    color: #38bdf8;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 992px) {
+    .oshtu-hero-banner {
+        height: auto;
+        flex-direction: column;
+    }
+    .banner-blue-side {
+        position: relative;
+        width: 100%;
+        clip-path: none;
+        padding: 30px 20px;
+    }
+    .banner-image-bg {
+        position: relative;
+        height: 240px;
+    }
+    .hexagon-container {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+    .custom-card {
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid #005b8e !important;
+    }
+    .custom-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    }
+    .icon-box {
+        width: 60px;
+        height: 60px;
+        background: #e6f0f7;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .book-card {
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.2s ease;
+        border: 1px solid #e0e0e0;
+    }
+    .book-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1) !important;
+    }
+</style>
+
+
+{% endblock %}

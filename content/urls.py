@@ -11,5 +11,8 @@ path('about', views.about, name='about'),
 path('team', views.team, name='team'),
 path('courses', views.courses, name='courses'),
     path('profession', views.profession, name='profession'),
+    path('library', views.library_view, name='libery'),
+    path('studenthome', views.studenthome, name='studenthome'),
+    
 
     ]

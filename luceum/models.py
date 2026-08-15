@@ -1,6 +1,21 @@
 from django.db import models
 
 
+
+class Hero(models.Model):
+   
+    
+    image = models.ImageField("Фотография", upload_to="hero_images/")
+    created_at = models.DateTimeField("Дата публикации", auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Слайд на главной"
+        verbose_name_plural = "Слайды на главной"
+        ordering = ['-created_at'] # Свежие новости будут первыми
+
+    def __str__(self):
+        return self.title
+
 class HeroSection(models.Model):
     image = models.ImageField(upload_to='hero/', blank=True, null=True, verbose_name='Изображение')
     title = models.CharField(max_length=100, verbose_name="Заголовок")

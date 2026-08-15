@@ -52,7 +52,19 @@
             $dropdown.off("mouseenter mouseleave");
         }
     });
-    
+    $(".header-carousel").owlCarousel({
+    autoplay: true,           // Включаем автопрокрутку
+    smartSpeed: 1500,         // Скорость анимации перехода
+    autoplayTimeout: 3000,    // Интервал смены слайдов (3000 мс = 3 секунды)
+    items: 1,
+    loop: true,               // Бесконечный цикл
+    dots: true,               // Точки навигации снизу
+    nav: true,                // Стрелочки "вперед/назад"
+    navText: [
+        '<i class="bi bi-chevron-left"></i>',
+        '<i class="bi bi-chevron-right"></i>'
+    ]
+});
     
     // Back to top button
     $(window).scroll(function () {
